@@ -30,7 +30,7 @@ app.get('/items', (req, res) => {
 app.post('/items', (req, res) => {
     const newItem = { id: Date.now(), name: req.body.name };
     items.push(newItem);
-    res.status(201).json(newItem);
+    res.status(201).json(newItem);     // Created successful response status code
 });
 
 // Update an item
@@ -42,7 +42,7 @@ app.put('/items/:id', (req, res) => {
         items[itemIndex].name = req.body.name;
         res.json(items[itemIndex]);
     } else {
-        res.status(404).json({ error: 'Item not found' });
+        res.status(404).json({ error: 'Item not found' });      // a server cannot find a requested resource
     }
 });
 
